@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
@@ -51,6 +53,7 @@ export default function Hero() {
                             <h1 className="text-4xl font-bold mb-4">{item.title}</h1>
                             <p className="text-lg mb-6">{item.subtitle}</p>
                             <button
+                                type='button'
                                 title="Shop Now"
                                 className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition-colors"
                             >
@@ -63,6 +66,7 @@ export default function Hero() {
             <div className="absolute bottom-4 left-0 right-0 flex justify-center z-30">
                 {carouselItems.map((_, index) => (
                     <button
+                        type='button'
                         title={`Slide ${index + 1}`}
                         key={index}
                         className={`w-3 h-3 rounded-full mx-2 ${index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-50'

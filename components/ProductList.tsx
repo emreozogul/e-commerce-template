@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import ProductCard from "./ProductCard";
 import ProductFilters from "./ProductFilters";
@@ -31,7 +33,7 @@ export default function ProductList() {
     return (
         <div>
             <ProductFilters onFilterChange={setFilters} />
-            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 [&:hover>li]:opacity-50">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ">
                 {filteredProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
                 ))}
