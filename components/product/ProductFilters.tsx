@@ -4,6 +4,9 @@ interface FilterProps {
     onFilterChange: (filters: { category: string; priceRange: string }) => void;
 }
 
+
+const CATEGORIES = ['all', 'electronics', 'clothing', 'books'];
+
 export default function ProductFilters({ onFilterChange }: FilterProps) {
     const [category, setCategory] = useState('all');
     const [priceRange, setPriceRange] = useState('all');

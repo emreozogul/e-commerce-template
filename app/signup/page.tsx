@@ -1,4 +1,4 @@
-import { SignupScreen } from "@/components/signup-screen"
+import { SignupScreen } from "@/components/signup/signup-screen"
 
 export default function SignupPage() {
     return <SignupScreen />

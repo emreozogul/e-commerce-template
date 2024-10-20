@@ -1,7 +1,7 @@
-import ProductList from '@/components/ProductList';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
+import Header from '@/components/containers/Header';
+import Hero from '@/components/containers/Hero';
+import ProductList from '@/components/product/ProductList';
+import Footer from '@/components/containers/Footer';
 
 export default function Home() {
 
