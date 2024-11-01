@@ -1,55 +1,75 @@
 import { useState } from 'react';
 
 interface FilterProps {
-    onFilterChange: (filters: { category: string; priceRange: string }) => void;
+    onFilterChange: (filters: {
+        category: string;
+        priceRange: string;
+        rating: string;
+        color: string;
+        size: string;
+        promotion: string;
+    }) => void;
 }
 
-
-const CATEGORIES = ['all', 'electronics', 'clothing', 'books'];
+const FILTER_OPTIONS = {
+    category: ['all', 'electronics', 'clothing', 'books'],
+    priceRange: ['all', '0-50', '50-100', '100-200', '200+'],
+    rating: ['all', '4+', '3+', '2+', '1+'],
+    color: ['all', 'black', 'white', 'red', 'blue', 'green'],
+    size: ['all', 'small', 'medium', 'large'],
+    promotion: ['all', 'new', 'featured', 'sale']
+};
 
 export default function ProductFilters({ onFilterChange }: FilterProps) {
-    const [category, setCategory] = useState('all');
-    const [priceRange, setPriceRange] = useState('all');
+    const [selectedFilter, setSelectedFilter] = useState('category');
+    const [filters, setFilters] = useState({
+        category: 'all',
+        priceRange: 'all',
+        rating: 'all',
+        color: 'all',
+        size: 'all',
+        promotion: 'all'
+    });
 
-    const handleFilterChange = (filterType: 'category' | 'priceRange', value: string) => {
-        if (filterType === 'category') {
-            setCategory(value);
-        } else {
-            setPriceRange(value);
-        }
-        onFilterChange({ category, priceRange: value });
+    const handleFilterChange = (value: string) => {
+        const newFilters = {
+            ...filters,
+            [selectedFilter]: value
+        };
+        setFilters(newFilters);
+        onFilterChange(newFilters);
     };
 
     return (
-        <div className="mb-6 flex flex-wrap gap-4">
-            <div>
-                <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">Category</label>
-                <select
-                    id="category"
-                    value={category}
-                    onChange={(e) => handleFilterChange('category', e.target.value)}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                >
-                    <option value="all">All Categories</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="clothing">Clothing</option>
-                    <option value="books">Books</option>
-                </select>
-            </div>
-            <div>
-                <label htmlFor="price" className="block text-sm font-medium text-gray-700 mb-1">Price Range</label>
-                <select
-                    id="price"
-                    value={priceRange}
-                    onChange={(e) => handleFilterChange('priceRange', e.target.value)}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                >
-                    <option value="all">All Prices</option>
-                    <option value="0-50">$0 - $50</option>
-                    <option value="51-100">$51 - $100</option>
-                    <option value="101+">$101+</option>
-                </select>
-            </div>
+        <div className="mb-6 flex flex-col sm:flex-row gap-4">
+            <select
+                title="Filter by"
+                value={selectedFilter}
+                onChange={(e) => setSelectedFilter(e.target.value)}
+                className="w-full sm:w-1/3 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            >
+                <option value="category">Category</option>
+                <option value="priceRange">Price Range</option>
+                <option value="rating">Rating</option>
+                <option value="color">Color</option>
+                <option value="size">Size</option>
+                <option value="promotion">Promotion</option>
+            </select>
+
+            <select
+                title={`Filter by ${selectedFilter}`}
+                value={filters[selectedFilter as keyof typeof filters]}
+                onChange={(e) => handleFilterChange(e.target.value)}
+                className="w-full sm:w-2/3 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            >
+                {FILTER_OPTIONS[selectedFilter as keyof typeof FILTER_OPTIONS].map(option => (
+                    <option key={option} value={option}>
+                        {option === 'all'
+                            ? `All ${selectedFilter.charAt(0).toUpperCase() + selectedFilter.slice(1)}s`
+                            : option.charAt(0).toUpperCase() + option.slice(1)}
+                    </option>
+                ))}
+            </select>
         </div>
     );
 }

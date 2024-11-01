@@ -33,7 +33,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <div className="relative h-[500px] overflow-hidden">
+        <div className="relative h-[500px] overflow-hidden rounded-xl">
             {carouselItems.map((item, index) => (
                 <div
                     key={index}

@@ -3,6 +3,11 @@ export interface Product {
     name: string;
     price: number;
     image: string;
-    category: string;
+    rating: number;
+    color: string;
+    material: string;
+    size: string;
+    theme?: string;
+    promotion?: 'new' | 'featured' | 'sale' | null;
 }
 

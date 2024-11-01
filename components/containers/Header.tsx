@@ -13,26 +13,22 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from '@/lib/utils';
 
-export default function Header({ className = '' }) {
-    const [isScrolled, setIsScrolled] = useState(false);
+export default function Header() {
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [variant, setVariant] = useState<'default' | 'scrolled' | 'onProduct'>('default');
     const { items, getTotalItems, getTotalPrice, removeItem } = useCartStore();
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            setIsScrolled(scrollPosition > 400);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    const variants = {
+        default: 'bg-gray-800 text-white',
+        scrolled: 'bg-gray-800 text-white',
+        onProduct: 'bg-gray-800 text-white',
+    }
 
     const toggleCart = () => setIsCartOpen(!isCartOpen);
     const handleOutsideClick = () => setIsCartOpen(false);
 
     return (
-        <header className={`text-white fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled ? 'bg-gray-800 text-white' : 'bg-transparent text-black'}`}>
+        <header className={cn('text-white sticky top-0 left-0 right-0 z-50 transition-colors duration-300', variants[variant])}>
             <nav className=" px-4 py-4 flex justify-between items-center">
                 <Link href="/" className="text-2xl font-bold">
                     E-Commerce Store
@@ -46,7 +42,7 @@ export default function Header({ className = '' }) {
                                 title="Menu"
                                 className={cn(
                                     'p-2 bg-primary text-white rounded-xl',
-                                    isScrolled ? 'bg-white text-black' : 'bg-primary text-white'
+                                    variant === 'scrolled' ? 'bg-white text-black' : 'bg-primary text-white'
                                 )}
                             >
                                 <Menu className="h-6 w-6" />
@@ -68,7 +64,7 @@ export default function Header({ className = '' }) {
                             onClick={toggleCart}
                             className={cn(
                                 'flex items-center bg-primary text-white rounded-xl p-2 relative',
-                                isScrolled ? 'bg-white text-black' : 'bg-primary text-white'
+                                variant === 'scrolled' ? 'bg-white text-black' : 'bg-primary text-white'
                             )}
                         >
                             <ShoppingCart className="h-6 w-6 mr-1" />
