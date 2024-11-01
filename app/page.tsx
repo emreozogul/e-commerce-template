@@ -1,19 +1,17 @@
-import ProductList from '@/components/ProductList';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
+import { Header, Hero, Footer } from '@/components/containers';
+import ProductList from '@/components/product/ProductList';
 
 export default function Home() {
 
 
   return (
-    <div className="flex flex-col  min-h-screen">
-      <Header />
-      <Hero />
-      <main className="flex-grow w-full max-w-7xl mx-auto px-4 py-8">
-        <ProductList />
-      </main>
-      <Footer />
+    <div className="flex flex-col  min-h-screen gap-8">
+      <div className=' w-full max-w-7xl mx-auto'>
+        <Hero />
+      </div>
+
+      <ProductList />
+
     </div>
   );
 }
