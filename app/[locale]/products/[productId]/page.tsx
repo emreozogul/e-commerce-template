@@ -11,7 +11,6 @@ interface ProductDetailProps {
         productId: string;
         locale: string;
     };
-    product: Product;
 }
 
 export default function ProductDetail({ params }: ProductDetailProps) {
