@@ -11,19 +11,19 @@ export default function Hero() {
 
     const carouselItems = [
         {
-            image: 'https://via.placeholder.com/150',
+            image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80',
             title: t('welcome'),
             subtitle: t('discover'),
             cta: t('shop_now')
         },
         {
-            image: 'https://via.placeholder.com/150',
+            image: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&q=80',
             title: t('new_arrivals'),
             subtitle: t('check_latest'),
             cta: t('shop_now')
         },
         {
-            image: 'https://via.placeholder.com/150',
+            image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80',
             title: t('special_offers'),
             subtitle: t('limited_deals'),
             cta: t('shop_now')
@@ -39,7 +39,7 @@ export default function Hero() {
     }, [currentSlide, carouselItems.length]);
 
     return (
-        <div className="relative h-[500px] overflow-hidden rounded-xl">
+        <div className="relative h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden rounded-lg md:rounded-xl">
             {carouselItems.map((item, index) => (
                 <div
                     key={index}
@@ -54,14 +54,14 @@ export default function Hero() {
                         className="z-0"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
-                    <div className="absolute inset-0 flex items-center justify-center z-20">
+                    <div className="absolute inset-0 flex items-center justify-center z-20 px-4 sm:px-6 lg:px-8">
                         <div className="text-center text-white">
-                            <h1 className="text-4xl font-bold mb-4">{item.title}</h1>
-                            <p className="text-lg mb-6">{item.subtitle}</p>
+                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">{item.title}</h1>
+                            <p className="text-base sm:text-lg mb-4 sm:mb-6">{item.subtitle}</p>
                             <Link
                                 href="/shop"
                                 title={item.cta}
-                                className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition-colors"
+                                className="bg-white text-black px-4 sm:px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition-colors text-sm sm:text-base"
                             >
                                 {item.cta}
                             </Link>

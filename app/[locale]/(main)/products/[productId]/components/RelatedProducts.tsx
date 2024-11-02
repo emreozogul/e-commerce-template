@@ -26,7 +26,7 @@ export default function RelatedProducts({ currentProductId, products, translatio
                         <CardContent className="p-4">
                             <div className="aspect-square overflow-hidden rounded-lg mb-4 relative">
                                 <Image
-                                    src={product.image}
+                                    src={product.images[0]}
                                     alt={product.name}
                                     fill
                                     className="object-cover"

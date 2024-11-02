@@ -22,6 +22,7 @@ export default function ProductImages({ images, currentImage, onImageChange }: P
             <div className="grid grid-cols-4 gap-4">
                 {images.map((img, index) => (
                     <button
+                        type="button"
                         title={`Product thumbnail ${index + 1}`}
                         key={index}
                         className={`aspect-square overflow-hidden rounded-lg ${index === currentImage ? 'ring-2 ring-primary' : ''

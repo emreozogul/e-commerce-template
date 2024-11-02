@@ -100,7 +100,7 @@ export default function Header() {
                                 <div className="max-h-60 overflow-y-auto">
                                     {items.map((item) => (
                                         <div key={item.id} className="flex items-center px-4 py-3 hover:bg-gray-100">
-                                            <Image src={item.image} alt={item.name} width={50} height={50} className="mr-3" />
+                                            <Image src={item.images[0]} alt={item.name} width={50} height={50} className="mr-3" />
                                             <div className="flex-grow">
                                                 <h3 className="text-sm font-medium text-gray-900">{item.name}</h3>
                                                 <p className="text-sm text-gray-500">${item.price.toFixed(2)} x {item.quantity}</p>
