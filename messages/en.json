@@ -1,0 +1,55 @@
+{
+    "header": {
+        "store_name": "E-Commerce Store",
+        "cart": "Cart",
+        "view_cart": "View Cart",
+        "total": "Total"
+    },
+    "hero": {
+        "welcome": "Welcome to Our Store",
+        "discover": "Discover amazing products at great prices",
+        "new_arrivals": "New Arrivals",
+        "check_latest": "Check out our latest collection",
+        "special_offers": "Special Offers",
+        "limited_deals": "Limited time deals on select items",
+        "shop_now": "Shop Now"
+    },
+    "filters": {
+        "title": "Filters",
+        "clear_all": "Clear all",
+        "price_range": "Price Range",
+        "apply_filters": "Apply Filters",
+        "categories": {
+            "rating": "Rating",
+            "color": "Color",
+            "material": "Material",
+            "size": "Size",
+            "theme": "Theme",
+            "promotion": "Promotion"
+        }
+    },
+    "footer": {
+        "rights": "© 2024 E-Commerce Store. All rights reserved."
+    },
+    "auth": {
+        "login": {
+            "title": "Login to your account",
+            "email": "Email address",
+            "password": "Password",
+            "remember": "Remember me",
+            "submit": "Sign in",
+            "forgot": "Forgot password?",
+            "signup": "Don't have an account? Sign up"
+        },
+        "signup": {
+            "title": "Create an account",
+            "name": "Full name",
+            "email": "Email address",
+            "password": "Password",
+            "confirm": "Confirm password",
+            "terms": "I agree to the Terms of Service",
+            "submit": "Sign up",
+            "login": "Already have an account? Sign in"
+        }
+    }
+}

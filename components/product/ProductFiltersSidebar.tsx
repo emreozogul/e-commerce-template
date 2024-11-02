@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import {
     Accordion,
@@ -8,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
+import { useTranslations } from 'next-intl';
 
 interface FilterProps {
     onFilterChange: (filters: {
@@ -37,6 +40,7 @@ const PRICE_RANGE = {
 };
 
 export default function ProductFiltersSidebar({ onFilterChange }: FilterProps) {
+    const t = useTranslations('filters');
     const [selectedFilters, setSelectedFilters] = useState<{
         price: number[];
         rating: string[];
@@ -110,21 +114,21 @@ export default function ProductFiltersSidebar({ onFilterChange }: FilterProps) {
     return (
         <div className="w-64 bg-white p-4 border-r min-h-screen">
             <div className="flex justify-between items-center mb-4">
-                <h2 className="text-lg font-semibold">Filters</h2>
+                <h2 className="text-lg font-semibold">{t('title')}</h2>
                 <Button
                     variant="ghost"
                     size="sm"
                     onClick={clearFilters}
                     className="text-sm text-gray-500"
                 >
-                    Clear all
+                    {t('clear_all')}
                 </Button>
             </div>
 
             <Accordion type="multiple" className="space-y-2">
                 <AccordionItem value="price">
                     <AccordionTrigger className="text-sm font-medium">
-                        Price Range
+                        {t('price_range')}
                     </AccordionTrigger>
                     <AccordionContent>
                         <div className="space-y-5">
@@ -152,7 +156,7 @@ export default function ProductFiltersSidebar({ onFilterChange }: FilterProps) {
                 {Object.entries(FILTER_OPTIONS).map(([category, options]) => (
                     <AccordionItem key={category} value={category}>
                         <AccordionTrigger className="text-sm font-medium">
-                            {category.charAt(0).toUpperCase() + category.slice(1)}
+                            {t(`categories.${category}`)}
                         </AccordionTrigger>
                         <AccordionContent>
                             <div className="space-y-2">
@@ -181,7 +185,7 @@ export default function ProductFiltersSidebar({ onFilterChange }: FilterProps) {
                 className="w-full mt-4"
                 onClick={handleApplyFilters}
             >
-                Apply Filters
+                {t('apply_filters')}
             </Button>
         </div>
     );
