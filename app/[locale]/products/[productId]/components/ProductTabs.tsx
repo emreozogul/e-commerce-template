@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
 import { Review } from "@/models/Product";
+import Image from "next/image";
 
 type ProductTabsProps = {
     product: Product;
@@ -111,7 +112,14 @@ const ReviewCard = ({ review }: { review: Review }) => {
                     {review.images && (
                         <div className="flex gap-2 mt-3">
                             {review.images.map((image, i) => (
-                                <img key={i} src={image} alt={`Review image ${i + 1}`} className="w-20 h-20 object-cover rounded" />
+                                <div key={i} className="relative w-20 h-20">
+                                    <Image
+                                        src={image}
+                                        alt={`Review image ${i + 1}`}
+                                        fill
+                                        className="object-cover rounded"
+                                    />
+                                </div>
                             ))}
                         </div>
                     )}
