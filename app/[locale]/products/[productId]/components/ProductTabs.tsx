@@ -6,23 +6,32 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
 import { Review } from "@/models/Product";
 
-export default function ProductTabs({ product }: { product: Product }) {
+type ProductTabsProps = {
+    product: Product;
+    translations: {
+        descriptionTitle: string;
+        specificationsTitle: string;
+        reviewsTitle: string;
+    };
+};
+
+export default function ProductTabs({ product, translations }: ProductTabsProps) {
     return (
         <div className="mt-16">
             <Tabs defaultValue="description">
                 <TabsList>
-                    <TabsTrigger value="description">Description</TabsTrigger>
-                    <TabsTrigger value="specifications">Specifications</TabsTrigger>
-                    <TabsTrigger value="reviews">Reviews</TabsTrigger>
+                    <TabsTrigger value="description">{translations.descriptionTitle}</TabsTrigger>
+                    <TabsTrigger value="specifications">{translations.specificationsTitle}</TabsTrigger>
+                    <TabsTrigger value="reviews">{translations.reviewsTitle}</TabsTrigger>
                 </TabsList>
                 <TabsContent value="description" className="mt-4">
                     <p>
                         Experience ultimate comfort and support with our Ergonomic Desk Chair. Designed to promote proper posture
                         and reduce fatigue during long work hours, this chair features adjustable lumbar support, a breathable mesh
-                        backrest, and a cushioned seat. The chair's sleek and modern design complements any office or home workspace.
+                        backrest, and a cushioned seat. The chair&apos;s sleek and modern design complements any office or home workspace.
                     </p>
                     <p className="mt-4">
-                        Perfect for the summer season, this chair's breathable mesh material keeps you cool and comfortable
+                        Perfect for the summer season, this chair&apos;s breathable mesh material keeps you cool and comfortable
                         throughout the day. Ideal for both home offices and professional settings.
                     </p>
                 </TabsContent>

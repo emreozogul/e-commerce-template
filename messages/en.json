@@ -77,5 +77,24 @@
             "submit": "Sign up",
             "login": "Already have an account? Sign in"
         }
+    },
+    "productDetail": {
+        "productNotFound": "Product not found",
+        "addToCart": "Add to Cart",
+        "addToWishlist": "Add to Wishlist",
+        "by": "by",
+        "reviews": "reviews",
+        "selectColor": "Select a color",
+        "selectSize": "Select a size",
+        "tabs": {
+            "description": "Description",
+            "specifications": "Specifications",
+            "reviews": "Reviews",
+            "noReviews": "No reviews yet"
+        },
+        "relatedProducts": {
+            "title": "Related Products",
+            "brief": "Brief product description"
+        }
     }
 }
