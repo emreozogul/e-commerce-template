@@ -13,7 +13,7 @@ import {
 import { useTranslations } from 'next-intl';
 import { Link, useRouter } from '@/lib/navigation';
 import { getSystemLanguage } from '@/lib/utils/getSystemLanguage';
-import { type Locale } from '@/i18n/settings';
+import { locales, type Locale } from '@/i18n/settings';
 
 export default function Header() {
     const [isCartOpen, setIsCartOpen] = useState(false);
@@ -35,8 +35,17 @@ export default function Header() {
     }, [router]);
 
     const switchLocale = (locale: Locale) => {
+        const pathname = window.location.pathname;
+        const segments = pathname.split('/').filter(Boolean);
+
+        const pathWithoutLocale = segments
+            .filter(segment => !locales.includes(segment as Locale))
+            .join('/');
+
+        const newPath = `/${locale}/${pathWithoutLocale}`;
+
         localStorage.setItem('language-preference', locale);
-        router.replace('/', { locale });
+        router.push(newPath);
     };
 
     return (

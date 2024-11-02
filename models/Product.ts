@@ -1,3 +1,14 @@
+export interface Review {
+    id: number;
+    userId: number;
+    userName: string;
+    rating: number;
+    comment: string;
+    date: string;
+    helpful: number;
+    images?: string[];
+}
+
 export interface Product {
     id: number;
     name: string;
@@ -9,5 +20,6 @@ export interface Product {
     size: string;
     theme?: string;
     promotion?: 'new' | 'featured' | 'sale' | null;
+    reviews?: Review[];
 }
 
