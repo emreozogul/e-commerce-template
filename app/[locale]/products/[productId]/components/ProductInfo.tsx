@@ -4,13 +4,25 @@ import { Badge } from "@/components/ui/badge";
 import ProductOptions from './ProductOptions';
 import { Product } from '@/models/Product';
 
-export default function ProductInfo({ product }: { product: Product }) {
+type ProductInfoProps = {
+    product: Product;
+    translations: {
+        addToCart: string;
+        addToWishlist: string;
+        by: string;
+        reviews: string;
+        selectColor: string;
+        selectSize: string;
+    };
+};
+
+export default function ProductInfo({ product, translations }: ProductInfoProps) {
     return (
         <div className="space-y-6">
             <div>
                 <div className="flex items-center justify-between">
-                    <h1 className="text-3xl font-bold">Ergonomic Desk Chair</h1>
-                    <Badge variant="secondary">Featured</Badge>
+                    <h1 className="text-3xl font-bold">{product.name}</h1>
+                    <Badge variant="secondary">{product.promotion || 'Featured'}</Badge>
                 </div>
                 <p className="text-sm text-muted-foreground mt-1">by ErgoComfort</p>
                 <div className="flex items-center mt-2">

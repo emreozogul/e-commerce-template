@@ -77,5 +77,38 @@
             "submit": "Kayıt ol",
             "login": "Zaten hesabınız var mı? Giriş yapın"
         }
+    },
+    "productDetail": {
+        "productNotFound": "Ürün bulunamadı",
+        "addToCart": "Sepete Ekle",
+        "addToWishlist": "Favorilere Ekle",
+        "by": "tarafından",
+        "reviews": "yorum",
+        "selectColor": "Renk seçin",
+        "selectSize": "Beden seçin",
+        "tabs": {
+            "description": "Açıklama",
+            "specifications": "Özellikler",
+            "reviews": "Yorumlar",
+            "descriptionContent": {
+                "part1": "Ergonomik Çalışma Sandalyemiz ile üstün konfor ve desteği deneyimleyin. Uzun çalışma saatleri boyunca doğru duruşu desteklemek ve yorgunluğu azaltmak için tasarlanan bu sandalye, ayarlanabilir bel desteği, nefes alabilen file sırt desteği ve yastıklı oturma yeri sunar. Sandalyenin şık ve modern tasarımı, her ofis veya ev çalışma alanını tamamlar.",
+                "part2": "Yaz sezonu için mükemmel olan bu sandalyenin nefes alabilen file malzemesi, gün boyu serin ve rahat kalmanızı sağlar. Hem ev ofisleri hem de profesyonel ortamlar için idealdir."
+            },
+            "specificationsList": {
+                "height": "Ayarlanabilir yükseklik: 43 - 53 cm",
+                "weight": "Ağırlık kapasitesi: 136 kg",
+                "swivel": "360 derece dönüş",
+                "tilt": "Gerginlik kontrollü yatma mekanizması",
+                "base": "Pürüzsüz tekerlekli beş kollu taban",
+                "material": "Malzeme: Premium file sırt desteği, yüksek yoğunluklu sünger oturma yeri",
+                "sizes": "Mevcut bedenler: Küçük, Orta, Büyük",
+                "colors": "Mevcut renkler: Siyah, Gri, Beyaz"
+            },
+            "noReviews": "Henüz yorum yok"
+        },
+        "relatedProducts": {
+            "title": "Benzer Ürünler",
+            "brief": "Kısa ürün açıklaması"
+        }
     }
 }
