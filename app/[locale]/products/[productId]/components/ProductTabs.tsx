@@ -27,13 +27,7 @@ export default function ProductTabs({ product, translations }: ProductTabsProps)
                 </TabsList>
                 <TabsContent value="description" className="mt-4">
                     <p>
-                        Experience ultimate comfort and support with our Ergonomic Desk Chair. Designed to promote proper posture
-                        and reduce fatigue during long work hours, this chair features adjustable lumbar support, a breathable mesh
-                        backrest, and a cushioned seat. The chair&apos;s sleek and modern design complements any office or home workspace.
-                    </p>
-                    <p className="mt-4">
-                        Perfect for the summer season, this chair&apos;s breathable mesh material keeps you cool and comfortable
-                        throughout the day. Ideal for both home offices and professional settings.
+                        {product.description}
                     </p>
                 </TabsContent>
                 <TabsContent value="specifications" className="mt-4">
