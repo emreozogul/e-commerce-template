@@ -11,7 +11,6 @@ export interface Review {
 
 export interface Product {
     id: number;
-    description: string;
     name: string;
     price: number;
     image: string;
@@ -19,6 +18,7 @@ export interface Product {
     color: string;
     material: string;
     size: string;
+    description?: string;
     theme?: string;
     promotion?: 'new' | 'featured' | 'sale' | null;
     reviews?: Review[];
