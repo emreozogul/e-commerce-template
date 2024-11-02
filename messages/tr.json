@@ -1,0 +1,55 @@
+{
+    "header": {
+        "store_name": "E-Ticaret Mağazası",
+        "cart": "Sepet",
+        "view_cart": "Sepeti Görüntüle",
+        "total": "Toplam"
+    },
+    "hero": {
+        "welcome": "Mağazamıza Hoş Geldiniz",
+        "discover": "Harika ürünleri uygun fiyatlarla keşfedin",
+        "new_arrivals": "Yeni Gelenler",
+        "check_latest": "En son koleksiyonumuza göz atın",
+        "special_offers": "Özel Teklifler",
+        "limited_deals": "Seçili ürünlerde sınırlı süreli fırsatlar",
+        "shop_now": "Şimdi Alışveriş Yap"
+    },
+    "filters": {
+        "title": "Filtreler",
+        "clear_all": "Tümünü Temizle",
+        "price_range": "Fiyat Aralığı",
+        "apply_filters": "Filtreleri Uygula",
+        "categories": {
+            "rating": "Değerlendirme",
+            "color": "Renk",
+            "material": "Materyal",
+            "size": "Beden",
+            "theme": "Tema",
+            "promotion": "Promosyon"
+        }
+    },
+    "footer": {
+        "rights": "© 2024 E-Ticaret Mağazası. Tüm hakları saklıdır."
+    },
+    "auth": {
+        "login": {
+            "title": "Hesabınıza giriş yapın",
+            "email": "E-posta adresi",
+            "password": "Şifre",
+            "remember": "Beni hatırla",
+            "submit": "Giriş yap",
+            "forgot": "Şifremi unuttum?",
+            "signup": "Hesabınız yok mu? Kayıt olun"
+        },
+        "signup": {
+            "title": "Hesap oluştur",
+            "name": "Ad Soyad",
+            "email": "E-posta adresi",
+            "password": "Şifre",
+            "confirm": "Şifre tekrar",
+            "terms": "Kullanım Koşullarını kabul ediyorum",
+            "submit": "Kayıt ol",
+            "login": "Zaten hesabınız var mı? Giriş yapın"
+        }
+    }
+}

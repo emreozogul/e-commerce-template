@@ -1,9 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useCartStore } from '@/stores/cartStore';
-import { ShoppingCart, X, Menu } from 'lucide-react';
+import { ShoppingCart, X, Globe } from 'lucide-react';
 import Image from 'next/image';
 import {
     DropdownMenu,
@@ -12,11 +11,16 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
+import { Link, useRouter, usePathname } from '@/lib/navigation';
+import { getSystemLanguage } from '@/lib/utils/getSystemLanguage';
 
 export default function Header() {
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [variant, setVariant] = useState<'default' | 'scrolled' | 'onProduct'>('default');
     const { items, getTotalItems, getTotalPrice, removeItem } = useCartStore();
+    const t = useTranslations();
+    const router = useRouter();
 
     const variants = {
         default: 'bg-gray-800 text-white',
@@ -27,11 +31,27 @@ export default function Header() {
     const toggleCart = () => setIsCartOpen(!isCartOpen);
     const handleOutsideClick = () => setIsCartOpen(false);
 
+    useEffect(() => {
+        // Check if this is the first visit
+        const hasLanguagePreference = localStorage.getItem('language-preference');
+
+        if (!hasLanguagePreference) {
+            const systemLang = getSystemLanguage() as 'en' | 'tr';
+            localStorage.setItem('language-preference', systemLang);
+            router.replace('/', { locale: systemLang });
+        }
+    }, [router]);
+
+    const switchLocale = (locale: 'en' | 'tr') => {
+        localStorage.setItem('language-preference', locale);
+        router.replace('/', { locale });
+    };
+
     return (
         <header className={cn('text-white sticky top-0 left-0 right-0 z-50 transition-colors duration-300', variants[variant])}>
             <nav className=" px-4 py-4 flex justify-between items-center">
                 <Link href="/" className="text-2xl font-bold">
-                    E-Commerce Store
+                    {t('header.store_name')}
                 </Link>
 
                 <div className="flex items-center space-x-2">
@@ -39,21 +59,29 @@ export default function Header() {
                         <DropdownMenuTrigger asChild>
                             <button
                                 type="button"
-                                title="Menu"
+                                title={t('header.language_selector')}
                                 className={cn(
                                     'p-2 bg-primary text-white rounded-xl',
                                     variant === 'scrolled' ? 'bg-white text-black' : 'bg-primary text-white'
                                 )}
                             >
-                                <Menu className="h-6 w-6" />
+                                <Globe className="h-6 w-6" />
                             </button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent>
-                            <DropdownMenuItem>
-                                <Link href="/">Home</Link>
+                            <DropdownMenuItem
+                                onSelect={() => switchLocale('en')}
+                                className="flex items-center gap-2"
+                            >
+                                <span className="text-lg">🇬🇧</span>
+                                <span>English</span>
                             </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                <Link href="/products">Products</Link>
+                            <DropdownMenuItem
+                                onSelect={() => switchLocale('tr')}
+                                className="flex items-center gap-2"
+                            >
+                                <span className="text-lg">🇹🇷</span>
+                                <span>Türkçe</span>
                             </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
@@ -95,11 +123,11 @@ export default function Header() {
                                 </div>
                                 <div className="bg-gray-100 px-4 py-3">
                                     <div className="flex justify-between items-center text-black">
-                                        <span className="font-medium">Total:</span>
+                                        <span className="font-medium">{t('header.total')}:</span>
                                         <span>${getTotalPrice().toFixed(2)}</span>
                                     </div>
                                     <Link href="/cart" className="mt-2 block w-full bg-blue-600 text-white text-center py-2 rounded-md">
-                                        View Cart
+                                        {t('header.view_cart')}
                                     </Link>
                                 </div>
                             </div>
