@@ -29,7 +29,33 @@
         }
     },
     "footer": {
-        "rights": "© 2024 E-Ticaret Mağazası. Tüm hakları saklıdır."
+        "description": "Özel teklifler, son güncellemeler ve stil ilhamı için bültenimize abone olun.",
+        "emailPlaceholder": "E-posta adresiniz",
+        "subscribe": "Abone Ol",
+        "subscribeSuccess": "Başarılı!",
+        "subscribeMessage": "Bültenimize başarıyla abone oldunuz.",
+        "subscribeError": "Abonelik başarısız oldu. Lütfen tekrar deneyin.",
+        "error": "Hata",
+        "copyright": "Tüm hakları saklıdır.",
+        "shop": {
+            "title": "Mağaza",
+            "newArrivals": "Yeni Gelenler",
+            "bestSellers": "Çok Satanlar",
+            "onSale": "İndirimde"
+        },
+        "support": {
+            "title": "Destek",
+            "contactUs": "İletişim",
+            "shipping": "Kargo",
+            "returns": "İade",
+            "faq": "SSS"
+        },
+        "legal": {
+            "title": "Yasal",
+            "terms": "Kullanım Koşulları",
+            "privacy": "Gizlilik Politikası",
+            "cookies": "Çerez Politikası"
+        }
     },
     "auth": {
         "login": {

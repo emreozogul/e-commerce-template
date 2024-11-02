@@ -29,7 +29,33 @@
         }
     },
     "footer": {
-        "rights": "© 2024 E-Commerce Store. All rights reserved."
+        "description": "Subscribe to our newsletter for exclusive offers, latest updates, and style inspiration delivered straight to your inbox.",
+        "emailPlaceholder": "Enter your email",
+        "subscribe": "Subscribe",
+        "subscribeSuccess": "Success!",
+        "subscribeMessage": "You've been successfully subscribed to our newsletter.",
+        "subscribeError": "Failed to subscribe. Please try again.",
+        "error": "Error",
+        "copyright": "All rights reserved.",
+        "shop": {
+            "title": "Shop",
+            "newArrivals": "New Arrivals",
+            "bestSellers": "Best Sellers",
+            "onSale": "On Sale"
+        },
+        "support": {
+            "title": "Support",
+            "contactUs": "Contact Us",
+            "shipping": "Shipping",
+            "returns": "Returns",
+            "faq": "FAQ"
+        },
+        "legal": {
+            "title": "Legal",
+            "terms": "Terms of Service",
+            "privacy": "Privacy Policy",
+            "cookies": "Cookie Policy"
+        }
     },
     "auth": {
         "login": {
