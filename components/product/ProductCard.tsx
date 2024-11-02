@@ -65,7 +65,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <div onClick={handleViewProduct} className="cursor-pointer">
                 <div className="relative h-48 w-full overflow-hidden">
                     <Image
-                        src={product.image}
+                        src={product.images[0]}
                         alt={product.name}
                         layout="fill"
                         objectFit="cover"

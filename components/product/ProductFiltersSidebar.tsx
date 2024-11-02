@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
 import { useTranslations } from 'next-intl';
+import { Trash2 } from 'lucide-react';
 
 interface FilterProps {
     onFilterChange: (filters: {
@@ -112,25 +113,18 @@ export default function ProductFiltersSidebar({ onFilterChange }: FilterProps) {
     };
 
     return (
-        <div className="w-64 bg-white p-4 border-r min-h-screen">
-            <div className="flex justify-between items-center mb-4">
+        <div className="w-full lg:w-64 bg-white p-4">
+            <div className="flex flex-col sm:flex-row  sm:justify-between sm:items-center mb-4">
                 <h2 className="text-lg font-semibold">{t('title')}</h2>
-                <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={clearFilters}
-                    className="text-sm text-gray-500"
-                >
-                    {t('clear_all')}
-                </Button>
+
             </div>
 
-            <Accordion type="multiple" className="space-y-2">
-                <AccordionItem value="price">
-                    <AccordionTrigger className="text-sm font-medium">
+            <Accordion type="multiple" className="w-full space-y-2">
+                <AccordionItem value="price" className="w-full">
+                    <AccordionTrigger className="text-sm font-medium w-full">
                         {t('price_range')}
                     </AccordionTrigger>
-                    <AccordionContent>
+                    <AccordionContent className="w-full">
                         <div className="space-y-5">
                             <Slider
                                 defaultValue={[0, PRICE_RANGE.max]}
@@ -154,11 +148,11 @@ export default function ProductFiltersSidebar({ onFilterChange }: FilterProps) {
                 </AccordionItem>
 
                 {Object.entries(FILTER_OPTIONS).map(([category, options]) => (
-                    <AccordionItem key={category} value={category}>
-                        <AccordionTrigger className="text-sm font-medium">
+                    <AccordionItem key={category} value={category} className="w-full">
+                        <AccordionTrigger className="text-sm font-medium w-full">
                             {t(`categories.${category}`)}
                         </AccordionTrigger>
-                        <AccordionContent>
+                        <AccordionContent className="w-full">
                             <div className="space-y-2">
                                 {options.map((option) => (
                                     <div key={option} className="flex items-center space-x-2">
@@ -186,6 +180,13 @@ export default function ProductFiltersSidebar({ onFilterChange }: FilterProps) {
                 onClick={handleApplyFilters}
             >
                 {t('apply_filters')}
+            </Button>
+            <Button
+                onClick={clearFilters}
+                className="text-sm text-gray-500 p-2 sm:p-1 gap-2 w-full mt-2 text-white bg-black/60 hover:bg-black/80"
+            >
+                <Trash2 className="h-5 w-5 sm:hidden hover:text-red-500 transition-colors" />
+                <span className="">{t('clear_all')}</span>
             </Button>
         </div>
     );
