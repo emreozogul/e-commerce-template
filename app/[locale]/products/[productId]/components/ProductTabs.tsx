@@ -37,7 +37,7 @@ export default function ProductTabs({ product, translations }: ProductTabsProps)
                 </TabsContent>
                 <TabsContent value="specifications" className="mt-4">
                     <ul className="list-disc pl-5 space-y-2">
-                        <li>Adjustable height: 17" - 21"</li>
+                        <li>Adjustable height: 17&quot; - 21&quot;</li>
                         <li>Weight capacity: 300 lbs</li>
                         <li>360-degree swivel</li>
                         <li>Tilt mechanism with tension control</li>

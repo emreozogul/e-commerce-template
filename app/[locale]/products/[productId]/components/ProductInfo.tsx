@@ -45,11 +45,11 @@ export default function ProductInfo({ product, translations }: ProductInfoProps)
             <div className="flex space-x-4">
                 <Button className="flex-1">
                     <ShoppingCart className="w-4 h-4 mr-2" />
-                    Add to Cart
+                    {translations.addToCart}
                 </Button>
                 <Button variant="outline">
                     <Heart className="w-4 h-4" />
-                    <span className="sr-only">Add to wishlist</span>
+                    <span className="sr-only">{translations.addToWishlist}</span>
                 </Button>
             </div>
 
