@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import { Heart, ShoppingCart, Eye, Star } from 'lucide-react';
+import { ShoppingCart, Eye, Star } from 'lucide-react';
 import { useCartStore } from '@/stores/cartStore';
 import { Product } from '@/models/Product';
 import { useRouter } from 'next/navigation';
