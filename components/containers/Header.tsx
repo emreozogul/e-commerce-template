@@ -10,29 +10,21 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
-import { Link, useRouter, usePathname } from '@/lib/navigation';
+import { Link, useRouter } from '@/lib/navigation';
 import { getSystemLanguage } from '@/lib/utils/getSystemLanguage';
+import { type Locale } from '@/i18n/settings';
 
 export default function Header() {
     const [isCartOpen, setIsCartOpen] = useState(false);
-    const [variant, setVariant] = useState<'default' | 'scrolled' | 'onProduct'>('default');
     const { items, getTotalItems, getTotalPrice, removeItem } = useCartStore();
     const t = useTranslations();
     const router = useRouter();
-
-    const variants = {
-        default: 'bg-gray-800 text-white',
-        scrolled: 'bg-gray-800 text-white',
-        onProduct: 'bg-gray-800 text-white',
-    }
 
     const toggleCart = () => setIsCartOpen(!isCartOpen);
     const handleOutsideClick = () => setIsCartOpen(false);
 
     useEffect(() => {
-        // Check if this is the first visit
         const hasLanguagePreference = localStorage.getItem('language-preference');
 
         if (!hasLanguagePreference) {
@@ -42,13 +34,13 @@ export default function Header() {
         }
     }, [router]);
 
-    const switchLocale = (locale: 'en' | 'tr') => {
+    const switchLocale = (locale: Locale) => {
         localStorage.setItem('language-preference', locale);
         router.replace('/', { locale });
     };
 
     return (
-        <header className={cn('text-white sticky top-0 left-0 right-0 z-50 transition-colors duration-300', variants[variant])}>
+        <header className="text-white sticky top-0 left-0 right-0 z-50 transition-colors duration-300 bg-primary">
             <nav className=" px-4 py-4 flex justify-between items-center">
                 <Link href="/" className="text-2xl font-bold">
                     {t('header.store_name')}
@@ -60,10 +52,7 @@ export default function Header() {
                             <button
                                 type="button"
                                 title={t('header.language_selector')}
-                                className={cn(
-                                    'p-2 bg-primary text-white rounded-xl',
-                                    variant === 'scrolled' ? 'bg-white text-black' : 'bg-primary text-white'
-                                )}
+                                className="p-2 bg-primary text-white rounded-xl"
                             >
                                 <Globe className="h-6 w-6" />
                             </button>
@@ -90,10 +79,7 @@ export default function Header() {
                             type="button"
                             title="Cart"
                             onClick={toggleCart}
-                            className={cn(
-                                'flex items-center bg-primary text-white rounded-xl p-2 relative',
-                                variant === 'scrolled' ? 'bg-white text-black' : 'bg-primary text-white'
-                            )}
+                            className="flex items-center bg-primary text-white rounded-xl p-2 relative"
                         >
                             <ShoppingCart className="h-6 w-6 mr-1" />
                             <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full px-1 text-xs">{getTotalItems()}</span>

@@ -1,4 +1,4 @@
-import { Header, Hero, Footer } from '@/components/containers';
+import { Hero } from '@/components/containers';
 import ProductList from '@/components/product/ProductList';
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
       </div>
 
       <ProductList />
-    
+
     </div>
   );
 }
