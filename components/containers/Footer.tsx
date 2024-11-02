@@ -23,6 +23,7 @@ export default function Footer() {
             });
             setEmail('');
         } catch (error) {
+            console.error(error);
             toast({
                 title: t('error'),
                 description: t('subscribeError'),
